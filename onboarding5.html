@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SyncSpace Onboarding 5</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-oZ6hPoMSNjE5rGgEuYp0vVVaWVPx7nGk6kYH9L+zfnJ+gDdSfsCGOJkAsxHZ6gPlUOBN9EgjXchSBhTJ1g9UFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #e6e9f8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      display: flex;
+      max-width: 1100px;
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .left-panel, .right-panel {
+      flex: 1 1 50%;
+      padding: 50px 40px;
+      box-sizing: border-box;
+    }
+
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .logo {
+      margin-bottom: 40px;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #222;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .chip {
+      padding: 10px 18px;
+      border: 1.8px solid #c6cce8;
+      border-radius: 30px;
+      font-size: 14px;
+      background: #fff;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .chip:hover {
+      border-color: #4a6cf7;
+    }
+
+    .chip.selected {
+      background-color: #4a6cf7;
+      color: #fff;
+      font-weight: 600;
+      border-color: #4a6cf7;
+    }
+
+    .next-btn {
+      padding: 16px 32px;
+      background-color: #4a6cf7;
+      color: white;
+      border: none;
+      border-radius: 32px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .next-btn:hover {
+      background-color: #3c5ae8;
+    }
+
+    .right-panel {
+      background: #f6f8fe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid #e0e0e0;
+    }
+
+    .table-box {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.05);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .table-box h3 {
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      color: #777;
+    }
+
+    td {
+      border-top: 1px solid #eee;
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .working {
+      background: #ffe08a;
+      color: #835700;
+    }
+
+    .done {
+      background: #b3f3c4;
+      color: #14653c;
+    }
+
+    .stuck {
+      background: #ffb3b3;
+      color: #990000;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-panel, .right-panel {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .right-panel {
+        border-left: none;
+        border-top: 1px solid #eee;
+      }
+
+      .next-btn {
+        align-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="logo">
+        <img src="assets/logo.png" alt="SyncSpace Logo" />
+      </div>
+
+      <h2>Select your board columns</h2>
+      <p>Pick what info you'd like to track for your project.</p>
+
+      <div class="columns" id="columnList">
+        <div class="chip">Owner</div>
+        <div class="chip">Status</div>
+        <div class="chip">Due date</div>
+        <div class="chip">Priority</div>
+        <div class="chip">Budget</div>
+        <div class="chip">Timeline</div>
+        <div class="chip">Files</div>
+        <div class="chip">Notes</div>
+      </div>
+
+      <button class="next-btn" onclick="goNext()">Continue →</button>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <div class="table-box">
+        <h3 id="projectTitle">Your Project</h3>
+        <table>
+          <thead>
+            <tr>
+              <th><i class="fas fa-user"></i> Owner</th>
+              <th><i class="fas fa-thumbtack"></i> Status</th>
+              <th><i class="fas fa-calendar-alt"></i> Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fas fa-user"></i> You</td>
+              <td><span class="status working">Working</span></td>
+              <td>Mar 25</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-user"></i> Teammate</td>
+              <td><span class="status done">Done</span></td>
+              <td>Mar 26</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-user"></i> Designer</td>
+              <td><span class="status stuck">Stuck</span></td>
+              <td>Mar 27</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const projectName = localStorage.getItem('projectName') || 'Your Project';
+    document.getElementById('projectTitle').textContent = projectName;
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('selected');
+      });
+    });
+
+    function goNext() {
+      window.location.href = "onboarding6.html";
+    }
+  </script>
+</body>
+</html>

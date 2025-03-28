@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SyncSpace Onboarding 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #a5b0e7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .left-panel, .right-panel {
+      flex: 1 1 50%;
+      padding: 40px 30px;
+    }
+
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .logo {
+      align-self: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    h2 {
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #6c0606;
+      text-align: center;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .option {
+      border: 1px solid #af4444;
+      padding: 12px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .option:hover {
+      background: #f0f0f0;
+    }
+
+    .option.active {
+      background: #ff8383;
+      border-color: #000000;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .footer {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding: 30px 50px;
+      box-sizing: border-box;
+    }
+
+    .continue-btn {
+      padding: 18px 35px;
+      font-size: 16px;
+      background-color: #ff8383;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      display: none;
+    }
+
+    .continue-btn:hover {
+      background-color: #ff5e5e;
+    }
+
+    .right-panel img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-panel, .right-panel {
+        flex: 1 1 100%;
+      }
+
+      .footer {
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .continue-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Left Panel -->
+      <div class="left-panel">
+        <div class="logo">
+          <img src="assets/logo.png" alt="SyncSpace Logo" />
+        </div>
+
+        <h2>How many people are on your team?</h2>
+        <div class="options" id="team-options">
+          <div class="option">Just me</div>
+          <div class="option">2–5 people</div>
+          <div class="option">6–15 people</div>
+          <div class="option">15+ team</div>
+          <div class="option">Still figuring it out</div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <img src="/assets/Illustration.png" alt="Illustration" />
+      </div>
+    </div>
+
+    <!-- Continue Button -->
+    <div class="footer">
+      <button class="continue-btn" id="continueBtn" onclick="goToNext()">Continue →</button>
+    </div>
+  </div>
+
+  <script>
+    const teamOptions = document.querySelectorAll("#team-options .option");
+    const continueBtn = document.getElementById("continueBtn");
+
+    teamOptions.forEach(option => {
+      option.addEventListener("click", () => {
+        teamOptions.forEach(o => o.classList.remove("active"));
+        option.classList.add("active");
+        continueBtn.style.display = "inline-block";
+      });
+    });
+
+    function goToNext() {
+      window.location.href = "onboarding4.html"; // or wherever your next step is
+    }
+  </script>
+</body>
+</html>
