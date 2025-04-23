@@ -1,0 +1,44 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+
+  backend:
+    build: ./backend
+    container_name: pms-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - MONGO_URI=mongodb://mongo:27017/project-management
+      - EMAIL_USER=psdproject61@gmail.com  # Make sure to set the correct email
+      - EMAIL_PASS=luwprrjooqdmvfhi     # Make sure to set the correct app password
+    depends_on:
+      - mongo
+    networks:
+      - pms-network
+
+  mongo:
+    image: mongo:6
+    container_name: pms-db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - pms-network
+
+networks:
+  pms-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
