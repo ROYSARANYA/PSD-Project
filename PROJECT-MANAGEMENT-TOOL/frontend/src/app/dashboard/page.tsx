@@ -49,7 +49,7 @@ function DashboardContent() {
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
       <aside className="w-64 bg-white shadow-lg p-6">
-        <h1 className="text-black text-xl font-bold mb-8">Project Management</h1>
+        <h1 className="text-black text-xl font-bold mb-8">TaskIon</h1>
         <nav className="space-y-4">
           <button
             onClick={() => handleTabChange('home')}
