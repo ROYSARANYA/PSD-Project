@@ -58,7 +58,7 @@ export default function LoginPage() {
         <div className="min-h-screen flex items-center justify-center bg-black px-4">
             <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8">
                 <div className="text-center mb-6">
-                    <h2 className="text-3xl font-bold text-gray-900">Welcome Back</h2>
+                    <h2 className="text-3xl font-bold text-gray-900">Welcome to TaskIon</h2>
                     <p className="text-sm text-gray-500 mt-2">Please sign in to your account</p>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-5">
