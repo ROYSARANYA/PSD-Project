@@ -1,0 +1,20 @@
+🌟 Feature Branches (Prefix: feature/)
+Create a new branch for each new UI or frontend logic component.
+
+feature/login-ui – Login form, validation, auth token handling
+
+feature/signup-ui – User registration page
+
+feature/dashboard-view – Project overview, task summary
+
+feature/create-task-form – UI for creating tasks
+
+feature/edit-task-modal – Task update functionality
+
+feature/task-list-view – Display all tasks
+
+feature/user-profile-settings – email, password update
+
+feature/email-reminder-ui – UI for viewing reminders
+
+feature/calendar-integration – Visual task calendar
