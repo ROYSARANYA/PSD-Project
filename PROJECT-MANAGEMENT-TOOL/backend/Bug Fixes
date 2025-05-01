@@ -1,0 +1,7 @@
+Bug Fixes
+fix(api): incorrect status code on task creation
+
+fix(db): resolve duplicate entry issue in user registration
+
+fix(email): fix email reminder not triggering on due date
+
