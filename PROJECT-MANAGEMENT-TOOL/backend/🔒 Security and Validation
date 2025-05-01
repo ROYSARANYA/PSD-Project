@@ -1,0 +1,4 @@
+🔒 Security and Validation
+feat(auth): add password hashing with bcrypt
+
+fix(auth): prevent login with invalid email
