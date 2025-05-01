@@ -1,0 +1,4 @@
+📬 Email Service
+feat(email): integrate Gmail SMTP for reminders
+
+fix(email): update email template for task alerts
