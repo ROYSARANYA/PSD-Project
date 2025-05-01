@@ -1,1 +1,27 @@
+Here's a **short, crisp, and important version** of the `requirements.md` for your **Project Management System** GitHub repo:
+
+---
+
+## 📄 Requirements — Project Management System
+
+### ✅ Functional Requirements
+- User registration, login & role-based access (Admin, Member)
+- Create, edit, and delete projects and tasks
+- Assign tasks with due dates and track status
+
+### ✅ Non-Functional Requirements
+- Secure authentication (Email Notification)
+- Role-based access control
+- 99.9% uptime and scalable deployment (Docker/CI-CD)
+
+### ✅ Tech Stack
+- **Backend**: Node.js + Express.js
+- **Frontend**: React.js
+- **Database**:  MongoDB
+- **Tools**: Docker, GitHub Actions
+- ** Postman: For API testing
+- ** Email Service: Gmail SMTP (for
+sending task reminder emails)
+
+
 
