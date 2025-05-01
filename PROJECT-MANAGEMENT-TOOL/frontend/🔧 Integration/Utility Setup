@@ -1,0 +1,7 @@
+🔧 Integration/Utility Setup
+setup/api-service – Axios or fetch configuration
+
+setup/env-config – Environment variables for API base URL
+
+integration/backend-connect – Connecting frontend with backend endpoints
+
