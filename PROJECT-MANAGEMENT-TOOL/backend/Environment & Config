@@ -1,0 +1,5 @@
+🔧 Environment & Config
+** chore(env): configure dotenv for dev and prod environments
+
+** chore(docker): create Dockerfile for backend container
+
