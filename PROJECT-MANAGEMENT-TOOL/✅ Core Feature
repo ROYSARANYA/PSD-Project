@@ -1,0 +1,12 @@
+Core Feature Commits
+feat(auth): implement user signup and login with JWT
+
+feat(projects): add create/read/update/delete endpoints for projects
+
+feat(tasks): add API to assign tasks to users
+
+feat(reminders): enable email reminders using nodemailer
+
+feat(users): implement profile update route
+
+feat(dashboard): return task and project summary stats
